@@ -2,6 +2,8 @@ package main
 
 import (
 	"encoding/hex"
+	"log"
+
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/btcec/v2/schnorr"
 	"github.com/btcsuite/btcd/btcutil"
@@ -10,8 +12,6 @@ import (
 	"github.com/btcsuite/btcd/rpcclient"
 	"github.com/btcsuite/btcd/txscript"
 	"github.com/btcsuite/btcd/wire"
-	"go-ord-tx/internal/ord"
-	"log"
 )
 
 func main() {

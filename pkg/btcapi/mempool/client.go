@@ -1,11 +1,12 @@
 package mempool
 
 import (
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/wire"
-	"go-ord-tx/pkg/btcapi"
 	"io"
 	"log"
+
+	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/btcsuite/btcd/wire"
+	"github.com/philipglazman/go-ord-tx/pkg/btcapi"
 )
 
 type MempoolClient struct {

@@ -3,17 +3,17 @@ package main
 import (
 	"encoding/hex"
 	"fmt"
+	"log"
+	"net/http"
+	"os"
+
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/btcec/v2/schnorr"
 	"github.com/btcsuite/btcd/btcutil"
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/btcsuite/btcd/txscript"
 	"github.com/btcsuite/btcd/wire"
-	"go-ord-tx/internal/ord"
-	"go-ord-tx/pkg/btcapi/mempool"
-	"log"
-	"net/http"
-	"os"
+	"github.com/philipglazman/go-ord-tx/pkg/btcapi/mempool"
 )
 
 func main() {

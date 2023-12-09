@@ -1,4 +1,4 @@
-module go-ord-tx
+module github.com/philipglazman/go-ord-tx
 
 go 1.20
 

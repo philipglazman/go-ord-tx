@@ -1,4 +1,4 @@
-# go-ord-tx
+# github.com/philipglazman/go-ord-tx
 
 ## golang ordinals btc nft inscribe tx
 
@@ -9,7 +9,7 @@
 
 ## Inscription Examples
 
-The inscribewithoutnoderpc, inscribewithprivatenoderpc, and inscribewithpublicnoderpc examples demonstrate how to use the go-ord-tx package to create inscriptions.
+The inscribewithoutnoderpc, inscribewithprivatenoderpc, and inscribewithpublicnoderpc examples demonstrate how to use the github.com/philipglazman/go-ord-tx package to create inscriptions.
 
 - inscribewithoutnoderpc: sends raw transactions directly to the network, without using an RPC node;
 - inscribewithprivatenoderpc: uses a private RPC node.
