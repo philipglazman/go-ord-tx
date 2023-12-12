@@ -27,14 +27,14 @@ func (c *MempoolClient) GetRawTransaction(txHash *chainhash.Hash) (*wire.MsgTx, 
 }
 
 type Fee struct {
-	fastestFee   int    `json:"fastestFee"`
-	halfHourFee   int    `json:"halfHourFee"`
-	hourFee   int    `json:"hourFee"`
-	economyFee   int    `json:"economyFee"`
-	minimumFee   int    `json:"minimumFee"`
+	fastestFee   int64    `json:"fastestFee"`
+	halfHourFee   int64    `json:"halfHourFee"`
+	hourFee   int64    `json:"hourFee"`
+	economyFee   int64    `json:"economyFee"`
+	minimumFee   int64    `json:"minimumFee"`
 }
 
-func (c *MempoolClient) GetFeeRate() (*int, error) {
+func (c *MempoolClient) GetFeeRate() (*int64, error) {
 	res, err := c.request(http.MethodGet, fmt.Sprintf("/v1/fees/recommended"), nil)
 	if err != nil {
 		return nil, err
