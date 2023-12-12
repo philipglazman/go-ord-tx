@@ -19,6 +19,7 @@ type BTCAPIClient interface {
 	GetRawTransaction(txHash *chainhash.Hash) (*wire.MsgTx, error)
 	BroadcastTx(tx *wire.MsgTx) (*chainhash.Hash, error)
 	ListUnspent(address btcutil.Address) ([]*UnspentOutput, error)
+	GetFeeRate() (*int, error)
 }
 
 func Request(method, baseURL, subPath string, requestBody io.Reader) ([]byte, error) {

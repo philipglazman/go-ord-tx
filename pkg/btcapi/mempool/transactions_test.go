@@ -17,3 +17,14 @@ func TestGetRawTransaction(t *testing.T) {
 		t.Log(transaction.TxHash().String())
 	}
 }
+
+func TestGetFee(t *testing.T) {
+	// https://mempool.space/docs/api/rest#get-recommended-fees
+	client := NewClient(&chaincfg.MainNetParams)
+	fee, err := client.GetFeeRate()
+	if err != nil {
+		t.Error(err)
+	} else {
+		t.Log(fee)
+	}
+}

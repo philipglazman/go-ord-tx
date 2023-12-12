@@ -3,12 +3,14 @@ package mempool
 import (
 	"bytes"
 	"encoding/hex"
+	"encoding/json"
 	"fmt"
+	"net/http"
+	"strings"
+
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/wire"
 	"github.com/pkg/errors"
-	"net/http"
-	"strings"
 )
 
 func (c *MempoolClient) GetRawTransaction(txHash *chainhash.Hash) (*wire.MsgTx, error) {
@@ -22,6 +24,29 @@ func (c *MempoolClient) GetRawTransaction(txHash *chainhash.Hash) (*wire.MsgTx, 
 		return nil, err
 	}
 	return tx, nil
+}
+
+type Fee struct {
+	fastestFee   int    `json:"fastestFee"`
+	halfHourFee   int    `json:"halfHourFee"`
+	hourFee   int    `json:"hourFee"`
+	economyFee   int    `json:"economyFee"`
+	minimumFee   int    `json:"minimumFee"`
+}
+
+func (c *MempoolClient) GetFeeRate() (*int, error) {
+	res, err := c.request(http.MethodGet, fmt.Sprintf("/v1/fees/recommended"), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	var fee Fee
+	err = json.Unmarshal(res, &fee)
+	if err != nil {
+		return nil, err
+	}
+
+	return &fee.fastestFee, nil
 }
 
 func (c *MempoolClient) BroadcastTx(tx *wire.MsgTx) (*chainhash.Hash, error) {
