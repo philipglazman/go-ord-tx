@@ -1,9 +1,10 @@
 package mempool
 
 import (
+	"testing"
+
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"testing"
 )
 
 func TestGetRawTransaction(t *testing.T) {
@@ -25,6 +26,6 @@ func TestGetFee(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	} else {
-		t.Log(fee)
+		t.Log(*fee)
 	}
 }
